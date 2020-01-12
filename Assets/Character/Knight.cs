@@ -16,10 +16,10 @@ public class Knight : MonoBehaviour
     float jumpForce;
 
     [SerializeField]
-    float speed=1;
+    float speed;
 
-    [SerializeField]
-    float stairSpeed;
+   
+    float stairSpeed =5;
     public bool OnStair
     {
         get { return onStair; }
@@ -73,7 +73,7 @@ public class Knight : MonoBehaviour
     void Update()
     {
         onGround = CheckGround();
-        animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+        animator.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
         Vector2 velocity = rigidbody.velocity;
         velocity.x = Input.GetAxis("Horizontal") * speed;
         rigidbody.velocity = velocity;
